@@ -40,7 +40,7 @@ jobs:
         run: yarn install
       - name: Build
         run: | 
-          cd decor-gator/frontend
+          cd decor-gator-v2/frontend
           yarn run build
       - name: Setup Pages
         uses: actions/configure-pages@v3
