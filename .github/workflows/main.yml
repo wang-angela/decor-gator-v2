@@ -35,6 +35,7 @@ jobs:
         with:
           node-version: 18
           cache: 'yarn'
+          cache-dependency-path: frontend/yarn.lock
       - name: Install dependencies
         run: yard add
       - name: Build
