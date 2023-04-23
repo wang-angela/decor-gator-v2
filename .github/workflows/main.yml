@@ -37,7 +37,7 @@ jobs:
           cache: 'yarn'
           cache-dependency-path: frontend/yarn.lock
       - name: Install dependencies
-        run: yard add
+        run: yarn add
       - name: Build
         run: yarn run build
       - name: Setup Pages
