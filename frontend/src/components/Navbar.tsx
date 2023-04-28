@@ -49,7 +49,6 @@ function Navbar() {
             aria-label="Close"
           ></button>
         </div>
-        <hr className="mx-3" />
         <div className="offcanvas-body">
           <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li className="nav-item">
@@ -69,11 +68,6 @@ function Navbar() {
             </li>
           </ul>
         </div>
-      </div>
-
-      {/* Divider */}
-      <div className="sticky-bottom">
-        <hr />
       </div>
     </>
   );
