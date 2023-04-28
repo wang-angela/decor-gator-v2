@@ -1,13 +1,15 @@
 import gator from "../assets/gator_boi.png";
+import swamp from "../assets/swamp_bg.jpg";
 import SignUpForm from "../components/SignUpForm";
 
 const Signup = () => {
+  const bg = "url(" + swamp + ")";
   return (
     <>
       <div style={{ height: "1000px" }}>
         <div
           style={{
-            backgroundImage: "url(src/assets/swamp_bg.jpg)",
+            backgroundImage: bg,
             height: "100%",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
