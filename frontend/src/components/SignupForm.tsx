@@ -43,24 +43,14 @@ function SignupForm() {
           <label htmlFor="inputUsername" className="form-label">
             Username
           </label>
-          <input
-            type="text"
-            className="form-control"
-            id="inputUsername"
-            placeholder="john&smith1"
-          />
+          <input type="text" className="form-control" id="inputUsername" />
         </div>
         {/* Password */}
         <div className="col-md-6">
           <label htmlFor="inputPassword" className="form-label">
             Password
           </label>
-          <input
-            type="text"
-            className="form-control"
-            id="inputPassword"
-            placeholder="abc123"
-          />
+          <input type="password" className="form-control" id="inputPassword" />
         </div>
         {/* Sign up button */}
         <div className="d-grid gap-2 d-md-flex justify-content-md-end mt-5">
