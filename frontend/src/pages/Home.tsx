@@ -40,7 +40,7 @@ const Home = () => {
         <h2 className="pt-5 display-5 text-center">Join Us!</h2>
         <p className="text-center">
           <a
-            href="#"
+            href="Login"
             className="link-dark link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover"
           >
             Already apart of the swamp?
