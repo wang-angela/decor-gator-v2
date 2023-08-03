@@ -62,9 +62,13 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Log In
-              </a>
+              <Link
+                className="link-dark"
+                to="/login"
+                style={{ textDecoration: "none" }}
+              >
+                Login
+              </Link>
             </li>
           </ul>
         </div>

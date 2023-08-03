@@ -1,11 +1,11 @@
-function SignUpForm() {
+function SignupForm() {
   return (
     <>
       <form className="row g-3 py-5 mx-auto" style={{ width: "50%" }}>
         {/* First Name */}
         <div className="col-md-6">
-          <label htmlFor="inputEmail4" className="form-label">
-            Email
+          <label htmlFor="firstName" className="form-label">
+            First
           </label>
           <input type="email" className="form-control" id="inputEmail4" />
         </div>
@@ -80,4 +80,4 @@ function SignUpForm() {
   );
 }
 
-export default SignUpForm;
+export default SignupForm;
