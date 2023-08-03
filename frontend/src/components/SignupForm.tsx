@@ -53,7 +53,7 @@ function SignupForm() {
           <input type="password" className="form-control" id="inputPassword" />
         </div>
         {/* Sign up button */}
-        <div className="d-grid gap-2 d-md-flex justify-content-md-end mt-5">
+        <div className="d-grid gap-2 d-md-flex justify-content-md-end my-5">
           <button
             type="submit"
             className="btn btn-primary"
