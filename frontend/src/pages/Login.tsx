@@ -1,4 +1,5 @@
 import lake from "../assets/lake_bg.jpg";
+import LoginInput from "../components/LoginInput";
 
 const Login = () => {
   const bg = "url(" + lake + ")";
@@ -16,12 +17,13 @@ const Login = () => {
       <h2 className="pt-5 display-5 text-center">Welcome Back, Gator!</h2>
       <p className="text-center">
         <a
-          href="Login"
+          href="Signup"
           className="link-dark link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover"
         >
           Not a Gator?
         </a>
       </p>
+      <LoginInput />
     </>
   );
 };

@@ -1,7 +1,7 @@
 function SignupForm() {
   return (
     <>
-      <form className="row g-3 py-5 mx-auto" style={{ width: "40%" }}>
+      <form className="row g-3 py-5 mx-auto" style={{ width: "30%" }}>
         {/* First Name */}
         <div className="col-md-6">
           <label htmlFor="inputFirstName" className="form-label">
@@ -53,11 +53,11 @@ function SignupForm() {
           <input type="password" className="form-control" id="inputPassword" />
         </div>
         {/* Sign up button */}
-        <div className="d-grid gap-2 d-md-flex justify-content-md-end my-5">
+        <div className="d-grid d-md-flex justify-content-md-center my-5">
           <button
             type="submit"
             className="btn btn-primary"
-            style={{ width: "25%" }}
+            style={{ width: "30%" }}
           >
             Sign Up
           </button>
