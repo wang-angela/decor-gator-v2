@@ -53,22 +53,20 @@ function Navbar() {
           <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li className="nav-item">
               {/* Endpoint to route to Signup page*/}
-              <Link
-                className="link-dark"
-                to="/sign-up"
-                style={{ textDecoration: "none" }}
+              <a
+                href="#"
+                className="link-dark link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-25-hover"
               >
                 Sign Up
-              </Link>
+              </a>
             </li>
             <li className="nav-item">
-              <Link
-                className="link-dark"
-                to="/login"
-                style={{ textDecoration: "none" }}
+              <a
+                href="#"
+                className="link-dark link-offset-2 link-underline link-underline-opacity-0 link-underline-opacity-25-hover"
               >
                 Login
-              </Link>
+              </a>
             </li>
           </ul>
         </div>

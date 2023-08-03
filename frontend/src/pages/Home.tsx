@@ -37,6 +37,13 @@ const Signup = () => {
             </a>
           </figcaption>
         </figure>
+        <h2 className="pt-5 display-5 text-center">Join Us!</h2>
+        <a
+          className="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+          href="#"
+        >
+          Underline opacity 0
+        </a>
         <SignupForm />
       </div>
     </>
