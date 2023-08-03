@@ -53,21 +53,21 @@ function Navbar() {
           <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li className="nav-item">
               {/* Endpoint route to Sign up page*/}
-              <Link
-                className="navbar-brand link-dark link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover"
-                to="/Signup"
+              <a
+                href="Signup"
+                className="link-dark link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover"
               >
                 Sign Up
-              </Link>
+              </a>
             </li>
             <li className="nav-item">
               {/* Endpoint route to Login page */}
-              <Link
-                className="navbar-brand link-dark link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover"
-                to="/Login"
+              <a
+                href="Login"
+                className="link-dark link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover"
               >
                 Login
-              </Link>
+              </a>
             </li>
           </ul>
         </div>
