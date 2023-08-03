@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import gator from "../assets/gator_boi.png";
 import swamp from "../assets/swamp_bg.jpg";
 import SignupForm from "../components/SignupForm";
@@ -38,12 +39,12 @@ const Home = () => {
         </figure>
         <h2 className="pt-5 display-5 text-center">Join Us!</h2>
         <p className="text-center">
-          <a
-            href="Login"
+          <Link
+            to="/Login"
             className="link-dark link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover"
           >
             Already apart of the swamp?
-          </a>
+          </Link>
         </p>
         <SignupForm />
       </div>

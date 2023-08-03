@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import lake from "../assets/lake2_bg.jpg";
 import SignupForm from "../components/SignupForm";
 
@@ -16,12 +17,12 @@ const Signup = () => {
       />
       <h2 className="pt-5 display-5 text-center">Get Your Decorating On!</h2>
       <p className="text-center">
-        <a
-          href="Login"
+        <Link
+          to="/Login"
           className="link-dark link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover"
         >
           Already apart of the gator gang?
-        </a>
+        </Link>
       </p>
       <SignupForm />
       <div
