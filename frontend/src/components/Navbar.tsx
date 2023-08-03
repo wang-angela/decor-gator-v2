@@ -52,25 +52,22 @@ function Navbar() {
         <div className="offcanvas-body">
           <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li className="nav-item">
-              {/* Endpoint to route to Signup page*/}
-              <p>
-                <a
-                  href="#"
-                  className="link-dark link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover"
-                >
-                  Sign Up
-                </a>
-              </p>
+              {/* Endpoint route to Sign up page*/}
+              <Link
+                className="navbar-brand link-dark link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover"
+                to="/Signup"
+              >
+                Sign Up
+              </Link>
             </li>
             <li className="nav-item">
-              <p>
-                <a
-                  href="#"
-                  className="link-dark link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover"
-                >
-                  Login
-                </a>
-              </p>
+              {/* Endpoint route to Login page */}
+              <Link
+                className="navbar-brand link-dark link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover"
+                to="/Login"
+              >
+                Login
+              </Link>
             </li>
           </ul>
         </div>

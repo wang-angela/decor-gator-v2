@@ -43,7 +43,7 @@ const Home = () => {
             href="#"
             className="link-dark link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover"
           >
-            Already joined the swamp?
+            Already apart of the swamp?
           </a>
         </p>
         <SignupForm />

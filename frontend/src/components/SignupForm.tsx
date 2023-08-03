@@ -59,7 +59,7 @@ function SignupForm() {
             className="btn btn-primary"
             style={{ width: "25%" }}
           >
-            Sign up
+            Sign Up
           </button>
         </div>
       </form>
