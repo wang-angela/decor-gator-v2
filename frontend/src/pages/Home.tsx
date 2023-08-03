@@ -18,8 +18,9 @@ const Home = () => {
           <h2 className="py-5 display-5 text-center">Welcome to the Swamp</h2>
         </div>
       </div>
+      <div></div>
       <div>
-        <figure className="my-5 text-center d-block figure">
+        <figure className="py-5 my-5 text-center d-block figure">
           <img
             src={gator}
             alt="Gator Logo"
@@ -30,8 +31,7 @@ const Home = () => {
           <figcaption className="figure-caption">
             <a
               href="https://www.vecteezy.com/free-vector/alligator-logo"
-              style={{ textDecoration: "none" }}
-              className="link-secondary"
+              className="link-secondary link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover"
             >
               https://www.vecteezy.com/free-vector/alligator-logo
             </a>
