@@ -8,10 +8,10 @@ const Login = () => {
       <div
         style={{
           backgroundImage: bg,
-          height: "100px",
+          height: "200px",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "top",
         }}
       />
       <h2 className="pt-5 display-5 text-center">Welcome Back, Gator!</h2>
@@ -24,6 +24,15 @@ const Login = () => {
         </a>
       </p>
       <LoginInput />
+      <div
+        style={{
+          backgroundImage: bg,
+          height: "200px",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "bottom",
+        }}
+      />
     </>
   );
 };
