@@ -47,8 +47,6 @@ func TestGetAllPosts(t *testing.T) {
 
 func TestCreatePost(t *testing.T) {
 	configs.ConnectDB()
-	controllers.InitAWSSession()
-	controllers.CreateBucket()
 
 	// Request Body
 	jsonBody := []byte(`{

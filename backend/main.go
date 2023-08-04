@@ -5,7 +5,6 @@ import (
 	"net/http"
 
 	"github.com/decor-gator/backend/pkg/configs"
-	"github.com/decor-gator/backend/pkg/controllers"
 	"github.com/decor-gator/backend/pkg/routes"
 	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
@@ -22,8 +21,6 @@ func main() {
 
 	// Connect database
 	configs.ConnectDB()
-	controllers.InitAWSSession()
-	controllers.CreateBucket()
 
 	// Routes
 	routes.UserRoutes(r)
@@ -32,7 +29,7 @@ func main() {
 	routes.JwtRoutes(r)
 
 	c := cors.New(cors.Options{
-		AllowedOrigins:   []string{"http://localhost:3000"},
+		AllowedOrigins:   []string{"http://localhost:5173"},
 		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE"},
 		AllowCredentials: true,
 	})

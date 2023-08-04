@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import lake from "../assets/lake_bg.jpg";
-import LoginInput from "../components/LoginInput";
+import LoginInput from "../components/LoginForm";
 
 const Login = () => {
   const bg = "url(" + lake + ")";

@@ -1,7 +1,32 @@
+import { useState } from "react";
+import { createUser } from "../middleware/userApi";
+
 function SignupForm() {
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
+  const [email, setEmail] = useState("");
+  const [uname, setUname] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (event: { preventDefault: () => void }) => {
+    const user: User = {
+      firstName: fname,
+      lastName: lname,
+      email: email,
+      username: uname,
+      password: password,
+    };
+
+    createUser(user);
+  };
+
   return (
     <>
-      <form className="row g-3 py-5 mx-auto" style={{ width: "30%" }}>
+      <form
+        onSubmit={handleSubmit}
+        className="row g-3 py-5 mx-auto"
+        style={{ width: "30%" }}
+      >
         {/* First Name */}
         <div className="col-md-6">
           <label htmlFor="inputFirstName" className="form-label">
@@ -10,8 +35,9 @@ function SignupForm() {
           <input
             type="text"
             className="form-control"
-            id="inputFirstName"
             placeholder="John"
+            value={fname}
+            onChange={(event) => setFname(event.target.value)}
           />
         </div>
         {/* Last Name */}
@@ -22,8 +48,9 @@ function SignupForm() {
           <input
             type="text"
             className="form-control"
-            id="inputLastName"
             placeholder="Smith"
+            value={lname}
+            onChange={(event) => setLname(event.target.value)}
           />
         </div>
         {/* Email */}
@@ -32,10 +59,11 @@ function SignupForm() {
             Email
           </label>
           <input
-            type="text"
+            type="email"
             className="form-control"
-            id="inputEmail"
             placeholder="john.smith@domain.com"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
           />
         </div>
         {/* Username */}
@@ -43,14 +71,25 @@ function SignupForm() {
           <label htmlFor="inputUsername" className="form-label">
             Username
           </label>
-          <input type="text" className="form-control" id="inputUsername" />
+          <input
+            type="text"
+            className="form-control"
+            value={uname}
+            onChange={(event) => setUname(event.target.value)}
+          />
         </div>
         {/* Password */}
         <div className="col-md-6">
           <label htmlFor="inputPassword" className="form-label">
             Password
           </label>
-          <input type="password" className="form-control" id="inputPassword" />
+          <input
+            type="password"
+            className="form-control"
+            autoComplete="off"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
         </div>
         {/* Sign up button */}
         <div className="d-grid d-md-flex justify-content-md-center my-5">
@@ -58,6 +97,7 @@ function SignupForm() {
             type="submit"
             className="btn btn-primary"
             style={{ width: "30%" }}
+            disabled={!fname || !lname || !email || !uname || !password}
           >
             Sign Up
           </button>
