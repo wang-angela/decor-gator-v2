@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import lake from "../assets/lake2_bg.jpg";
 import SignupForm from "../components/SignupForm";
+import { getUsers } from "../api";
 
 const Signup = () => {
   const bg = "url(" + lake + ")";
