@@ -8,7 +8,7 @@ function SignupForm() {
   const [uname, setUname] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (event: { preventDefault: () => void }) => {
+  const handleSubmit = () => {
     const user: User = {
       firstName: fname,
       lastName: lname,
