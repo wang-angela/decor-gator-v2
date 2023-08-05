@@ -1,21 +1,26 @@
 import "bootstrap/dist/css/bootstrap.css";
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home.tsx";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Home from "./pages/Home.tsx";
 import Login from "./pages/Login.tsx";
 import Signup from "./pages/Signup.tsx";
+import ThankYou from "./pages/ThankYou.tsx";
+import ScrollToTop from "./hooks/ScrollToTop.tsx";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/Signup" element={<Signup />} />
-      </Routes>
-      <Footer />
+      <ScrollToTop>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/Signup" element={<Signup />} />
+          <Route path="/Signup-complete" element={<ThankYou />} />
+        </Routes>
+        <Footer />
+      </ScrollToTop>
     </>
   );
 }

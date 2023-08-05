@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createUser } from "../middleware/userApi";
+import { useNavigate } from "react-router-dom";
 
 function SignupForm() {
   const [fname, setFname] = useState("");
@@ -8,7 +9,11 @@ function SignupForm() {
   const [uname, setUname] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = () => {
+  const navigate = useNavigate();
+
+  const handleSubmit = (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+
     const user: User = {
       firstName: fname,
       lastName: lname,
@@ -18,6 +23,7 @@ function SignupForm() {
     };
 
     createUser(user);
+    navigate("/Signup-complete");
   };
 
   return (
