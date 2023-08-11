@@ -49,8 +49,8 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 	var user models.User
 
 	// Prints an error id the user doesn't exists.
-	params := mux.Vars(r)["email"]
-	filter := bson.D{{Key: "email", Value: params}}
+	params := mux.Vars(r)["username"]
+	filter := bson.D{{Key: "username", Value: params}}
 
 	err := userColl.FindOne(context.TODO(), filter).Decode(&user)
 	if err == mongo.ErrNoDocuments {
@@ -117,8 +117,8 @@ func UpdateUser(w http.ResponseWriter, r *http.Request) {
 	user.Password = utils.Encrypt(user.Password)
 
 	// Prints an error id the user doesn't exists.
-	params := mux.Vars(r)["email"]
-	filter := bson.D{{Key: "email", Value: params}}
+	params := mux.Vars(r)["username"]
+	filter := bson.D{{Key: "username", Value: params}}
 
 	update := bson.D{{Key: "$set",
 		Value: bson.D{
@@ -153,8 +153,8 @@ func DeleteUser(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application-json")
 
 	// Search parameters
-	params := mux.Vars(r)["email"]
-	filter := bson.D{{Key: "email", Value: params}}
+	params := mux.Vars(r)["username"]
+	filter := bson.D{{Key: "username", Value: params}}
 
 	res, err := userColl.DeleteOne(context.TODO(), filter)
 	if err != nil {

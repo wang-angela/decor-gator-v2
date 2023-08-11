@@ -17,10 +17,6 @@ function LoginInput() {
       alert("User does not exists! Please try again.");
       return;
     }
-    if (password != result.password) {
-      alert("Password is incorrect! Please try again.");
-      return;
-    }
 
     navigate("/Login-complete");
   }
