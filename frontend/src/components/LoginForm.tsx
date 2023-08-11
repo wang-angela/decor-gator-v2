@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getUser } from "../middleware/userApi";
-import { useNavigate, useNavigation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function LoginInput() {
   const [uname, setUname] = useState("");
@@ -17,7 +17,6 @@ function LoginInput() {
       alert("User does not exists! Please try again.");
       return;
     }
-
     if (password != result.password) {
       alert("Password is incorrect! Please try again.");
       return;

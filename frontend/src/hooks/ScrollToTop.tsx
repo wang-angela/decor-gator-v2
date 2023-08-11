@@ -1,10 +1,4 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Link,
-  useLocation,
-} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { PropsWithChildren, useLayoutEffect } from "react";
 
 function ScrollToTop({ children }: PropsWithChildren) {
