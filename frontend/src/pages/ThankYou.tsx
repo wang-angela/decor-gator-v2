@@ -24,8 +24,8 @@ const ThankYou = () => {
           backgroundPosition: "top",
         }}
       />
-      <h2 className="pt-5 display-5 text-center">
-        Welcome to the World of DecorGator!
+      <h2 className="pt-5 display-5 text-center text-wrap">
+        Thank You for Joining DecorGator!
       </h2>
       <figure className="py-5 my-5 text-center d-block figure">
         <img
@@ -44,7 +44,6 @@ const ThankYou = () => {
           </a>
         </figcaption>
       </figure>
-
       <div
         style={{
           backgroundImage: bg,

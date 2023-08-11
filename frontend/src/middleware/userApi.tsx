@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 
 export function getUsers() {
@@ -24,14 +24,20 @@ export function getUsers() {
   );
 }
 
-export function createUser(newUser: User) {
+export async function getUser(name: String) {
+  const response = await axios.get("http://localhost:8080/user/" + name);
+
+  return response.data;
+}
+
+export function createUser(user: User) {
   axios
     .post("http://localhost:8080/user", {
-      firstName: newUser.firstName,
-      lastName: newUser.lastName,
-      email: newUser.email,
-      username: newUser.username,
-      password: newUser.password,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      username: user.username,
+      password: user.password,
     })
     .then((response) => {
       console.log(response);
