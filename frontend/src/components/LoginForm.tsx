@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { getUser } from "../middleware/userApi";
 import { useNavigate } from "react-router-dom";
+import bcrypt from "bcryptjs";
 
 function LoginInput() {
   const [uname, setUname] = useState("");
@@ -12,9 +13,14 @@ function LoginInput() {
     event.preventDefault();
 
     const result = await getUser(uname);
+    const correctPass = await bcrypt.compare(password, result.password);
 
     if (result == "User does not exist") {
       alert("User does not exists! Please try again.");
+      return;
+    }
+    if (!correctPass) {
+      alert("Incorrect password! Please try again.");
       return;
     }
 

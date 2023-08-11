@@ -94,8 +94,8 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
-	email := []string{user.Email}
-	SendWelcomeEmail(email)
+	//email := []string{user.Email}
+	//SendWelcomeEmail(email)
 
 	// Returns error if encoding is unsuccessful
 	err = json.NewEncoder(w).Encode(res)

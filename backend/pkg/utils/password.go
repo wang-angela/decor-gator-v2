@@ -9,7 +9,7 @@ import (
 )
 
 func Encrypt(password string) string {
-	bytes, err := bcrypt.GenerateFromPassword([]byte(password), 15)
+	bytes, err := bcrypt.GenerateFromPassword([]byte(password), 10)
 	if err != nil {
 		log.Fatalln(err)
 	}
