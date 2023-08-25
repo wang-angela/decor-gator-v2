@@ -10,7 +10,6 @@ import (
 	"time"
 
 	"github.com/decor-gator/backend/pkg/models"
-	"github.com/decor-gator/backend/pkg/utils"
 	"github.com/golang-jwt/jwt"
 	"github.com/gorilla/context"
 	"github.com/mitchellh/mapstructure"
@@ -24,16 +23,6 @@ func CreateTokenEndpoint(w http.ResponseWriter, r *http.Request) {
 	err := json.NewDecoder(r.Body).Decode(&user)
 	if err != nil {
 		log.Fatalln("Error Decoding")
-	}
-
-	if !utils.JwtVerifyUserExists(user) {
-		fmt.Print("User does not exist")
-		return
-	}
-
-	if !utils.JwtVerifyPassword(user) {
-		fmt.Print("Password incorrect")
-		return
 	}
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
