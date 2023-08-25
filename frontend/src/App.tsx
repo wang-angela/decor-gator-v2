@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ProtectedRoute from "./components/ProtectedRoute.tsx";
 import Home from "./pages/Home.tsx";
 import Login from "./pages/Login.tsx";
 import Signup from "./pages/Signup.tsx";
@@ -10,6 +11,7 @@ import Welcome from "./pages/Welcome.tsx";
 import ScrollToTop from "./hooks/ScrollToTop.tsx";
 
 function App() {
+  // FIXME: Fix Protected Route access
   return (
     <>
       <ScrollToTop>
@@ -17,7 +19,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Login" element={<Login />} />
-          <Route path="/Login-complete" element={<Welcome />} />
+          <Route
+            path="/Login-complete"
+            element={<ProtectedRoute allowAccess={true} page={<Welcome />} />}
+          />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Signup-complete" element={<ThankYou />} />
         </Routes>

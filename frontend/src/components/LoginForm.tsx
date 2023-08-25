@@ -3,7 +3,7 @@ import { getUser } from "../middleware/userApi";
 import { useNavigate } from "react-router-dom";
 import bcrypt from "bcryptjs";
 
-function LoginInput() {
+function LoginForm() {
   const [uname, setUname] = useState("");
   const [password, setPassword] = useState("");
 
@@ -75,4 +75,4 @@ function LoginInput() {
   );
 }
 
-export default LoginInput;
+export default LoginForm;

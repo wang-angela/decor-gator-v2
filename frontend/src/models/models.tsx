@@ -5,3 +5,8 @@ type User = {
   username: string;
   password: string;
 };
+
+interface Token {
+  name: string;
+  exp: number;
+}
