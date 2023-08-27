@@ -8,15 +8,13 @@ type AccessTokenContext = [
 ];
 
 const AccessTokenProvider: FC = (props) => {
-  const [accessToken, setAccessToken] = useState<string>("None");
+  const [accessToken, setAccessToken] = useState<string>("null");
   return (
     <AccessToken.Provider value={[accessToken, setAccessToken]} {...props} />
   );
 };
 
-const AccessToken = createContext<AccessTokenContext>(
-  "none" as unknown as AccessTokenContext
-);
+const AccessToken = createContext<AccessTokenContext>({} as AccessTokenContext);
 
 const useAccessToken = (): AccessTokenContext =>
   useContext<AccessTokenContext>(AccessToken);
