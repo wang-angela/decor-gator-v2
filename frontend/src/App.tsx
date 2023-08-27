@@ -20,8 +20,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/Login" element={<Login />} />
           <Route
-            path="/Login-complete"
-            element={<ProtectedRoute allowAccess={true} page={<Welcome />} />}
+            path="/Welcome"
+            element={<ProtectedRoute page={<Welcome />} />}
           />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Signup-complete" element={<ThankYou />} />

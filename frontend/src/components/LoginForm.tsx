@@ -2,8 +2,11 @@ import { useState } from "react";
 import { getUser } from "../middleware/userApi";
 import { useNavigate } from "react-router-dom";
 import bcrypt from "bcryptjs";
+import { createToken } from "../middleware/jwtApi";
+import { useAccessToken } from "../context/provider";
 
 function LoginForm() {
+  const [accessToken, setAccessToken] = useAccessToken();
   const [uname, setUname] = useState("");
   const [password, setPassword] = useState("");
 
@@ -24,7 +27,10 @@ function LoginForm() {
       return;
     }
 
-    navigate("/Login-complete");
+    const token: string = await createToken(uname, password);
+    setAccessToken(token);
+
+    navigate("/Welcome");
   }
 
   return (
