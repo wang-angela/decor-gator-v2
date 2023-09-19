@@ -7,8 +7,8 @@ import Home from "./pages/Home.tsx";
 import Login from "./pages/Login.tsx";
 import Signup from "./pages/Signup.tsx";
 import ThankYou from "./pages/ThankYou.tsx";
-import Welcome from "./pages/Welcome.tsx";
-import ScrollToTop from "./hooks/ScrollToTop.tsx";
+import Welcome from "./pages/PostPage.tsx";
+import ScrollToTop from "./components/ScrollToTop.tsx";
 
 function App() {
   // FIXME: Fix Protected Route access

@@ -1,7 +1,11 @@
 package models
 
-type JwtToken struct {
-	Token string `json:"token"`
+type AccessToken struct {
+	AccessToken string `json:"accessToken"`
+}
+
+type RefreshToken struct {
+	RefreshToken string `json:"refreshToken"`
 }
 
 type Exception struct {

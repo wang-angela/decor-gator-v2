@@ -1,4 +1,6 @@
+import { Navigate } from "react-router-dom";
 import lake from "../assets/lake_bg.jpg";
+import { useAuth } from "../hooks/useAuth";
 
 const Welcome = () => {
   const bg = "url(" + lake + ")";

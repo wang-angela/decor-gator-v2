@@ -2,17 +2,25 @@ import { useState } from "react";
 import { getUser } from "../middleware/userApi";
 import { useNavigate } from "react-router-dom";
 import bcrypt from "bcryptjs";
-import { createToken } from "../middleware/jwtApi";
-import { useAccessToken } from "../context/provider";
+import {
+  createAccessToken,
+  createRefreshToken,
+  verifyToken,
+} from "../middleware/jwtApi";
+import { useAccessToken } from "../hooks/useAccessToken";
+import { useCookies } from "react-cookie";
+import { useAuth } from "../hooks/useAuth";
 
 function LoginForm() {
   const [accessToken, setAccessToken] = useAccessToken();
+  const [isAuth, setIsAuth] = useAuth();
+  const [cookies, setCookie] = useCookies(["refresh"]);
   const [uname, setUname] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
 
-  async function handleSubmit(event: { preventDefault: () => void }) {
+  const handleSubmit = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
     const result = await getUser(uname);
@@ -27,11 +35,20 @@ function LoginForm() {
       return;
     }
 
-    const token: string = await createToken(uname, password);
-    setAccessToken(token);
+    const access = await createAccessToken(uname, password);
+    console.log(access);
+    const refresh = await createRefreshToken();
+    setAccessToken(access.accessToken);
+    setCookie("refresh", refresh.refreshToken);
+
+    const verify = await verifyToken(accessToken);
+    console.log(verify);
+    if (!verify) {
+      setIsAuth(true);
+    }
 
     navigate("/Welcome");
-  }
+  };
 
   return (
     <>

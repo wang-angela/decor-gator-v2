@@ -12,12 +12,11 @@ import (
 	"github.com/decor-gator/backend/pkg/models"
 	"github.com/golang-jwt/jwt"
 	"github.com/gorilla/context"
-	"github.com/mitchellh/mapstructure"
 )
 
 var PassPhrase = "SecretestSecret"
 
-func CreateTokenEndpoint(w http.ResponseWriter, r *http.Request) {
+func CreateAccessEndpoint(w http.ResponseWriter, r *http.Request) {
 	var user models.User
 
 	err := json.NewDecoder(r.Body).Decode(&user)
@@ -25,6 +24,7 @@ func CreateTokenEndpoint(w http.ResponseWriter, r *http.Request) {
 		log.Fatalln("Error Decoding")
 	}
 
+	// Access token
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 		"username": user.Username,
 		"exp":      time.Now().Add(time.Minute * 5).Unix(),
@@ -35,7 +35,22 @@ func CreateTokenEndpoint(w http.ResponseWriter, r *http.Request) {
 		log.Fatalln(err)
 	}
 
-	json.NewEncoder(w).Encode(models.JwtToken{Token: tokenStr})
+	json.NewEncoder(w).Encode(models.AccessToken{AccessToken: tokenStr})
+}
+
+func CreateRefreshEndpoint(w http.ResponseWriter, r *http.Request) {
+	// Refresh Token
+	refreshTkn := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
+		"exp": time.Now().Add(time.Minute * 5).Unix(),
+	})
+
+	refreshStr, err := refreshTkn.SignedString([]byte(PassPhrase))
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	json.NewEncoder(w).Encode(models.RefreshToken{RefreshToken: refreshStr})
+
 }
 
 func ValidateMiddleware(next http.HandlerFunc) http.HandlerFunc {
@@ -43,7 +58,7 @@ func ValidateMiddleware(next http.HandlerFunc) http.HandlerFunc {
 
 		authorizationHeader := r.Header.Get("authorization")
 		if authorizationHeader != "" {
-			bearerToken := strings.Split(authorizationHeader, " ")
+			bearerToken := strings.Split(authorizationHeader, ".")
 			if len(bearerToken) == 2 {
 				token, error := jwt.Parse(bearerToken[1], func(token *jwt.Token) (interface{}, error) {
 					if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
@@ -69,8 +84,5 @@ func ValidateMiddleware(next http.HandlerFunc) http.HandlerFunc {
 }
 
 func VerifyEndpoint(w http.ResponseWriter, r *http.Request) {
-	decoded := context.Get(r, "decoded")
-	var user models.User
-	mapstructure.Decode(decoded.(jwt.MapClaims), &user)
-	json.NewEncoder(w).Encode(user)
+	json.NewEncoder(w).Encode("")
 }
