@@ -7,7 +7,7 @@ import Home from "./pages/Home.tsx";
 import Login from "./pages/Login.tsx";
 import Signup from "./pages/Signup.tsx";
 import ThankYou from "./pages/ThankYou.tsx";
-import Welcome from "./pages/PostPage.tsx";
+import PostPage from "./pages/PostPage.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 
 function App() {
@@ -20,8 +20,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/Login" element={<Login />} />
           <Route
-            path="/Welcome"
-            element={<ProtectedRoute page={<Welcome />} />}
+            path="/Listings"
+            element={<ProtectedRoute page={<PostPage />} />}
           />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Signup-complete" element={<ThankYou />} />

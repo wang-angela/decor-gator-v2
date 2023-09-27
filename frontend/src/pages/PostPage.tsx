@@ -1,6 +1,5 @@
-import { Navigate } from "react-router-dom";
 import lake from "../assets/lake_bg.jpg";
-import { useAuth } from "../hooks/useAuth";
+import Listing from "../components/Listing";
 
 const Welcome = () => {
   const bg = "url(" + lake + ")";
@@ -16,9 +15,8 @@ const Welcome = () => {
           backgroundPosition: "top",
         }}
       />
-      <h2 className="pt-5 display-5 text-center text-wrap">
-        Welcome to DecorGator!
-      </h2>
+      <h2 className="pt-5 display-5 text-center text-wrap">Listings</h2>
+      <Listing></Listing>
       <div
         style={{
           backgroundImage: bg,

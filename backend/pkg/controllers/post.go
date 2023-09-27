@@ -33,7 +33,7 @@ func GetPosts(w http.ResponseWriter, r *http.Request) {
 
 	err = json.NewEncoder(w).Encode(&posts)
 	if err != nil {
-		log.Printf("Error Encoding.")
+		log.Printf("Error Encoding")
 	}
 }
 
@@ -125,7 +125,6 @@ func UpdatePost(w http.ResponseWriter, r *http.Request) {
 			{Key: "description", Value: post.Description},
 			{Key: "price", Value: post.Price},
 			{Key: "user_posted", Value: post.UserPosted},
-			{Key: "image_url", Value: post.ImageURL},
 		},
 	}}
 

@@ -2,19 +2,13 @@ import { useState } from "react";
 import { getUser } from "../middleware/userApi";
 import { useNavigate } from "react-router-dom";
 import bcrypt from "bcryptjs";
-import {
-  createAccessToken,
-  createRefreshToken,
-  verifyToken,
-} from "../middleware/jwtApi";
+import { createAccessToken, verifyToken } from "../middleware/jwtApi";
 import { useAccessToken } from "../hooks/useAccessToken";
-import { useCookies } from "react-cookie";
 import { useAuth } from "../hooks/useAuth";
 
 function LoginForm() {
   const [accessToken, setAccessToken] = useAccessToken();
   const [isAuth, setIsAuth] = useAuth();
-  const [cookies, setCookie] = useCookies(["refresh"]);
   const [uname, setUname] = useState("");
   const [password, setPassword] = useState("");
 
@@ -37,9 +31,8 @@ function LoginForm() {
 
     const access = await createAccessToken(uname, password);
     console.log(access);
-    const refresh = await createRefreshToken();
+
     setAccessToken(access.accessToken);
-    setCookie("refresh", refresh.refreshToken);
 
     const verify = await verifyToken(accessToken);
     console.log(verify);
@@ -47,7 +40,7 @@ function LoginForm() {
       setIsAuth(true);
     }
 
-    navigate("/Welcome");
+    navigate("/Listings");
   };
 
   return (

@@ -9,5 +9,4 @@ type Post struct {
 	Description   string             `json:"description" bson:"description"`
 	Price         float64            `json:"price" bson:"price"`
 	UserPosted    string             `json:"userPosted" bson:"user_posted"`
-	ImageURL      string             `json:"imageURL" bson:"image_url"`
 }

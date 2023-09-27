@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
-import { useEffect, useState } from "react";
 import { useAuth } from "../hooks/useAuth";
+import { useAccessToken } from "../hooks/useAccessToken";
 
 export type ProtectedRouteProps = {
   page: JSX.Element;
@@ -8,11 +8,6 @@ export type ProtectedRouteProps = {
 
 function ProtectedRoute({ page }: ProtectedRouteProps) {
   const [isAuth, setIsAuth] = useAuth();
-  const [access, setAccess] = useState(false);
-
-  useEffect(() => {
-    setAccess(isAuth);
-  });
 
   if (isAuth) {
     return page;
